@@ -41,7 +41,7 @@ public class SecurityConfig {
                 cors.setAllowedMethods(Collections.singletonList("*"));
                 cors.setAllowedHeaders(Collections.singletonList("*"));
                 cors.setExposedHeaders(Collections.singletonList("Authorization"));
-                
+
                 return cors;
             }
         }))
@@ -54,7 +54,6 @@ public class SecurityConfig {
 						  .requestMatchers(HttpMethod.PUT,"/api/updateprod/**").hasAuthority("ADMIN")
 						  .requestMatchers(HttpMethod.DELETE,"/api/delprod/**").hasAuthority("ADMIN")
 						.anyRequest().authenticated() )
-	                  //  .oauth2ResourceServer(rs -> rs.jwt(Customizer.withDefaults()));
 	     				  .oauth2ResourceServer(rs->rs.jwt(jwt->
 	     				  			jwt.jwtAuthenticationConverter(keycloakRoleConverter)));
 	    
@@ -66,3 +65,13 @@ public class SecurityConfig {
 	
 
 }
+//authentication ->policies => constraint pour le mot de passe
+//real setting -> login -> user registration
+//realm setting -> user registration -> assign role  (decoshi hide inherited roles ki te7eb temchi thabet)
+//realm setting -> Email  ( bech configuri les emails )
+
+//realm setting -> Verify email (compte yewali actif ken ma verifi email mete3ou)
+//realm setting -> forgot password (bech resti passworf)
+//ki login bil social auto registration
+
+//~/go/bin/MailHog  ti start mailhog server

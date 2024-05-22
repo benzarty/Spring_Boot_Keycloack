@@ -1,0 +1,23 @@
+server:
+    servlet:
+        context-path: /produits
+spring:
+    datasource:
+        password: postgres
+        url: jdbc:postgresql://localhost:5432/keycloakproject
+        username: postgres2
+    jpa:
+        hibernate:
+            ddl-auto: update
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true
+    security:
+        oauth2:
+            resourceserver:
+                jwt:
+                    issuer-uri: http://localhost:8090/realms/udemyRealm
+                    jwk-set-uri: http://localhost:8090/realms/udemyRealm/protocol/openid-connect/certs
+
+
+
+
